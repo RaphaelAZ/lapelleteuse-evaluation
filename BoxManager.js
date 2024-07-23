@@ -11,12 +11,29 @@ class BoxManager {
       this.boxes.push(box);
     }
   
-    findBoxNotFull() {
-      return this.boxes.find(box => !box.fullBox());
+    findBox(machineType) {
+      let boxMissingType = this.boxes.find(box => !box.getMachines().some(machine => machine.type === machineType));
+      
+      if (boxMissingType) {
+          return boxMissingType;
+      } else {
+        const boxesNotFull = this.boxes.filter(box => !box.fullBox());
+        if(boxesNotFull.length > 0) {
+          return boxesNotFull.reduce((minBox, currentBox) => 
+            currentBox.getMachines().length < minBox.getMachines().length ? currentBox : minBox
+          );
+        } else {
+          return null;
+        }
+      }
     }
-  
-    findBoxMissingType() {
-      return this.boxes.find(box => !box.allTypes());
+
+    displayBoxesAndContent() {
+      this.boxes.forEach(box => {
+        console.log(`Box -> ${box.name}:`);
+        box.displayContent();
+        console.log('');
+      });
     }
 }
 
