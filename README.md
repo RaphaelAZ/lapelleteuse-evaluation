@@ -22,4 +22,3 @@ Les Patterns mis en place dans le code sont :
 - Le Singleton
 - La Factory
 - L'Observer
-- 
