@@ -1,7 +1,7 @@
 # Évaluation Design Pattern (LaPelleteuse)
 
 ### Prérequis
-Avoir cloné le projet et éxécuter les commandes ci-dessous.
+Avoir cloné le projet et éxécuté les commandes ci-dessous.
 
 ### Commands
 
